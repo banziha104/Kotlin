@@ -126,3 +126,38 @@ people.filter({Person::adult}) // 프로퍼티 참조
 people
 ```
 
+- 인라인 함수 : 인라인 함수를 사용하면 매개변수로 받는 함수형 인자의 본체를 해당 인자가 사용되는 부분에 그대로 대입함으로 성능 하락을 방지
+
+```kotlin
+inline fun doSomething(body : () -> Unit){
+    println("pre")
+    body()
+    println("post")
+}
+```
+
+- 분해선언 : 일부만 사용하거나 각 항목을 별도의 변수로 뽑아 사용하는 경우, 지원하는 클래스는 아래와 같음
+    - 데이터 클래스로 선언된 클래스
+    - kotlin.Pair
+    - kotlin.Triple
+    - kotlin.collections.Map.Entry
+
+```kotlin
+data class Person(val age: Int, val name: String)
+
+val person : Person = ...
+
+val (ageOfPerson, nameOfPerson) = person
+
+// 분해선언 기능을 사용하고 싶다면 해당 클래스 내에 별도로 componentN 함수를 프로퍼티 선언 순서 및
+// 타입에 맞춰서 추가해주어야함
+
+class Person(val age : Int, val name : String){
+    operator fun component1() = this.age
+    operator fun component2() = this.name
+}
+
+val person : Person = ...
+val (age,name) = person
+```
+
