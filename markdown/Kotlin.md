@@ -127,7 +127,7 @@ class Foo{
 ### 상속과 인터페이스
 
 > 콜론뒤에 상속한 클래스나 인터페이스 표시 반드시 부모 클래스의 생성자를 호출해야함.
-
+> <br> open 키워드를 붙인 클래스나 함수가 아니라면 클래스를 상속하거나 함수를 재정의할 수 없음
 ```kotlin
 class MainActivity: AppCompatActivity(),View.OnClickListener{
 
@@ -141,4 +141,114 @@ class MyView : View{
         
     }
 }
+
 ```
+
+# this 
+
+> 해당 키워드를 사용한 클래스 자신을 지칭할 때 사용하며 가장 가까운 범위의 클래스를 의미함,
+> <br> 따라서 클래스 내에서 다른 클래스나 인터페이스의 인스턴스를 동적으로 생성하여 사용하는 경우 
+> <br> this를 바인딩 해주어야함, 코틀린에서는 this@{클래스 이름} 으로 함
+
+```kotlin
+class MainActivity : AppCompatActivity(){
+    fun a(){
+        Toast.makeText(this@MainActivity, "Hello", Toast.LENGTH_SHORT).show()
+    }
+}
+```
+
+### 정적 필드 및 메서드
+
+> 코틀린에서는 정적 필드와 메서드를 지원하지 않음. 
+
+```kotlin
+const val FOO = 123
+
+// 함수 foo를 패키지 foo.bar에 선언
+fun foo(){
+
+}
+class Foo{
+    //함수 bar 는 Foo의 인스턴스를 생성해야 사용가능
+    fun bar(){}
+}
+
+import foo.bar.FOO
+import foo.bar.foo
+
+class Bar{
+    fun bar(){
+        val foo = FOO
+    }
+    // foo.bar 패키지 내의 함수 foo를 호출함
+    foo()
+}
+
+/*동반 객체를 사용하는 것이 가장 비슷함, private 생성자에도 접근가능*/
+
+
+class User private constructor(val name : String, val registerTime : Long){
+    // companion object는 클래스 내부에 존재함으로 private로 선언된 생성자에 접근할 수 이씀
+    companion object{
+        fun create(name: String) : User{
+            return User(name, System.currentTimeMillis())
+        }
+    }
+}
+```
+
+### 싱글톤
+
+> object 키워드를 사용하여 이를 간편하게 선언 할 수 있음
+
+```kotlin
+object Singleton{
+    var FOO = "foo"
+    
+    fun foo() {}
+}
+
+val fooValue = foo.FOO
+
+Foo.foo() // Foo의 함수 호출
+```
+
+### 옵셔널 관련
+
+- ?: 널값에 디폴트를 넣음
+
+```kotlin
+var a = foo ?: bar // 널일경우 bar 를 넣고 널이 아닐경우 foo 반환
+
+var b = foo ?: throws IllegalStateException() //널일경우 에러를 발생시킴
+```
+
+- ?. : 가능할 경우에만 값을 넣고, 아닌 경우 null을 대입
+
+```kotlin
+var foo = bar?.baz // 널이 아닐 경우에만 값을 대입, 그렇지 않을 경우 null을 대입
+
+foo?.bar() // foo가 null이 아닐경우에만 bar() 호출
+```
+
+- as? : 안전한 캐스팅
+
+```kotlin
+var foo: String = "foo"
+
+// 실패할 수도 있음으로 Int? 로선언
+var bar : Int? = foo as? Int 
+```
+
+- !! : 널이 아님을 보증
+
+```kotlin
+val foo : Foo? = "..."
+
+val nonNullFoo : Foo = foo!! // 널 값이 아님을 보증
+
+foo!!.bar() // 값 foo가 널 값을 포함하지 않음을 보증
+```
+
+
