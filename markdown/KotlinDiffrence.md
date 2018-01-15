@@ -160,5 +160,3 @@ class Person(val age : Int, val name : String){
 val person : Person = ...
 val (age,name) = person
 ```
-
-
