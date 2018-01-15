@@ -42,7 +42,6 @@ pd.progress = 50
 ideterminateProgressDialog(message = "Please wait").show()
 
 
-
 /* 인텐트 관련 */
 
 val intent = Intent()
