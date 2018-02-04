@@ -87,7 +87,7 @@ fun String.withBar() = this.withPostfix("Bar")
 ```kotlin
 class Volume(var left : Int, var right : Int){
     //단항 연산자 -
-    operator fun unaryMinus() : Volume {
+    operator fun unaryMinus() : Volume { 
         this.left = -this.left
         this.right = -this.right
         return this
@@ -160,3 +160,5 @@ class Person(val age : Int, val name : String){
 val person : Person = ...
 val (age,name) = person
 ```
+
+

@@ -36,7 +36,7 @@ val javaClass : Class<out String> = str::class.java //자바클래스반환
 
 # 자바에서 코틀린 코드 사용하기
 
-- 프로퍼티의 게터 세터
+- 프로퍼티의 게터 세터C3E88D
     - var 는 getter, setter 모두지원
     - val 는 getter 만 지원
     
