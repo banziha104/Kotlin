@@ -44,7 +44,18 @@ ideterminateProgressDialog(message = "Please wait").show()
 
 /* 인텐트 관련 */
 
-val intent = Intent()
-```
+val intent = Intent(this, DetailActivity::class.this)
+intent.putExtra("id",150L)
+startActivity(intent)
 
+
+var intent = intentFor<DetailActivity>(
+    "id" to 150L, "title" to "mTitle"
+    .noHistory //인텐트 플래그 설정
+)
+startActivity<DetailActivity>("id" to 150L, "title" to "Awesome item")
+
+makeCall(number = "01012345678")
+
+```
 

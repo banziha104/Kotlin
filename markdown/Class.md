@@ -4,6 +4,7 @@
 - 클래스는 기본적으로 final 이며, 상속을 허용하려면 open 키워드를 붙어야함
 - open 클래스 중 오버라이드를 금지시키는 메소드가 필요할 경우, final을 붙여야함.
 
+- 인터페이스
 
 ```kotlin
 interface Clickable{
@@ -49,5 +50,5 @@ class Button : Clickable, Focusable{
     - 생성 : new 키워드 없이 생성자를 직접 호출하면됌.
     - 생성자 파라미터에 디폴트 값을 지정하면 컴파일러가 자동으로 파라미터가 없는 생성자를 만들어준다.
     - 부 생성자 : constructor 키워드를 이용함
-    
+    - init : 초기화 블록
     
