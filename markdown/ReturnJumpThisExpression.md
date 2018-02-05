@@ -67,5 +67,6 @@ class Sample {
     }
     fun test(a: Int) {
         a.foo()
-} }
+    } 
+}
 ```
