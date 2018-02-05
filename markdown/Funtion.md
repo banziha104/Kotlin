@@ -40,6 +40,12 @@ private fun String.withPostfix(postFix: String) = "$this$postFix"
 
 // 구현부에서는 this를 사용하여 클래스의 인스턴스에 접근할수 있으며 이를 리시버 객체라고함
 fun String.withBar() = this.withPostfix("Bar")
+
+infix fun Int.max(x: Int)
+   = if (this > x) this else x
+
+1 max 15 // infix 키워드사용시 해당처럼 사용가능
+
 ```
 
 - 연산자 오버로딩 : 각 연산자별로 사전 정의된 함수를 재정의하는 방식으로 연산자 오버로딩을 사용할 수 있음

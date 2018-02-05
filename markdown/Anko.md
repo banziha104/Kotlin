@@ -56,6 +56,51 @@ var intent = intentFor<DetailActivity>(
 startActivity<DetailActivity>("id" to 150L, "title" to "Awesome item")
 
 makeCall(number = "01012345678")
+sendSMS(number = "01012345678", text = "Hello, Kotlin")
+browse(url = "https://google.com")
+email(email = "aaa@gmail.com", subject = "hello", text ="text")
+
+
+/*로그 메세지 기록 AnkoLogger인터페이스를 구현해야함*/
+v()
+d()
+e()
+(...)
+
+/*단위 변환 */
+
+dip()
+sp()
+
+px2dip()
+px2sp()
+
+
+```
+
+# Anko Layut
+
+```groovy
+// minSdkVersion에 맞추어 Anko Layouts 라이브러리를 추가함
+
+complie "org.jetbrains.anko:anko-sdk15:0.10.2"
+
+```
+
+- 사용 예제
+
+```kotlin
+
+/* 액티비티 내에서는 AnkoComponenet 없이 구성 가능*/
+class MainActivityUI : AnkoComponenet<MainActivity> {
+    override fun createView(ui: AnkoContext<MainActivity>) = ui.apply {
+        verticalLayout{
+            padding = dip(12)
+            
+            textView("Enter Login")
+        }
+    }
+}
 
 ```
 
