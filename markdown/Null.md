@@ -73,6 +73,7 @@ listWithNulls.forEach { it?.let {println(it)}}
 - safeLet : 최대 5개 까지 동시에 null 체크 가능
 
 ```kotlin
+
 fun test() {
   val a: String? = "ABC"
   val b: String? = "BBB"
