@@ -52,3 +52,6 @@ class Button : Clickable, Focusable{
     - 부 생성자 : constructor 키워드를 이용함
     - init : 초기화 블록
     
+    
+- 클래스 위임 : by 키워드를 사용하며 
+    
