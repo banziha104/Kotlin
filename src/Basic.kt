@@ -2,8 +2,7 @@
 fun main(args : Array<String>){
     val user = mUser("leeyoungjoon",1,"코")
     user.printNickName("본격적 호출")
-    var obj : String?
-
+    var obj : RefCheck? = null
 
 
 }

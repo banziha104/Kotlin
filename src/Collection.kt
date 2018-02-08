@@ -17,7 +17,10 @@ fun main(args : Array<String>){
 }
 
 
-class RefCheck(var num : Int){
+class RefCheck(var num : Int = 0){
+
+
+
     fun isMoreThree() : Boolean{
         return num > 3
     }
