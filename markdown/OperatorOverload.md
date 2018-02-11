@@ -22,8 +22,6 @@
     - inc : ++a , a++
     - dec : --a , a--
     
-- 비교 연산자
-    -
         
 ```kotlin
 data class Point(val x : Int, val y : Int){
@@ -40,5 +38,22 @@ operator fun Point.times(scale: Douber) : Point{
 
 ```
 
+- 인덱스로 원소의 접근(get, set)
 
+```kotlin
+operator fun Point.get(index:Int) : Int{
+    /*구현부*/
+}
 
+operator fun Point.set(index:Int, value: Int) : Int{
+    /*구현부*/
+}
+```
+
+- in 관례 (contains)
+
+- 비구조화 할당 : 자바스크립트와 비슷함
+
+# 위임 프로퍼티 
+
+> 
